@@ -1,19 +1,27 @@
-import * as React from 'react';
-import { SpinLoading } from 'antd-mobile';
-import { BrowserRouter } from 'react-router-dom';
-import Router from './router';
-import { store } from './store';
-import { Provider } from 'react-redux';
+import React,{useEffect} from 'react';
+import logo from './logo.svg';
+import {BrowserRouter, Route, Routes, NavLink} from 'react-router-dom';
+import './App.css';
+import action from './action';
+import Home from './pages/Home';
 
-const App = () => {
+function App() {
+  useEffect(() => {
+    action.onGlobalStateChange((state) => {//监听公共状态的变化
+      console.log('当前state的值是----', state);
+    }, true);
+  },[])
+  
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <React.Suspense fallback={<SpinLoading color="primary" />}>
-          <Router />
-        </React.Suspense>
-      </BrowserRouter>
-    </Provider>
+    <BrowserRouter>
+        <div>
+          <NavLink to="/micro-react"/>
+        </div>
+      <Routes>
+        <Route path='/micro-react' element={<Home/>}/>
+      </Routes>
+    </BrowserRouter>
   );
-};
+}
+
 export default App;
