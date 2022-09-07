@@ -6,7 +6,6 @@ import action from './action';
 function App() {
   useEffect(() => {
     action.onGlobalStateChange((state) => {//监听公共状态的变化
-      console.log('当前state的值是----++', state);
     }, true);
   },[])
 

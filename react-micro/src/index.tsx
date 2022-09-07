@@ -6,13 +6,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 function render(props:any) {
-  console.log('props------react',props);
-  
   const { container,routerBase } = props;
   const RootDom= container ? container.querySelector('#root') : document.querySelector('#root');
   const root = ReactDOM.createRoot(RootDom);
   const base = (window as any).__POWERED_BY_QIANKUN__ ? routerBase : '/';
-  console.log('base----',base);
 
   root.render(
     <Router basename={base}>

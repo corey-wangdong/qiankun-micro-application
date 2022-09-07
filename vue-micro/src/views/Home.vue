@@ -12,7 +12,6 @@ export default {
   mounted() {
     action.onGlobalStateChange((state) => {
       console.log('子类获取----', state);
-      // this.peopleLists = state.usersInfo;
     }, true)
   }
 }

@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { registerMicroApps, start ,addGlobalUncaughtErrorHandler} from 'qiankun';
+import { registerMicroApps,loadMicroApp, start ,addGlobalUncaughtErrorHandler} from 'qiankun';
 import appsConfig from './micro_app';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-// console.log('registerMicroApps----',registerMicroApps);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,8 +14,6 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-console.log('appsConfig----',appsConfig);
 
 registerMicroApps(appsConfig,{
   beforeLoad: [
@@ -54,4 +50,4 @@ start();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
+reportWebVitals();
