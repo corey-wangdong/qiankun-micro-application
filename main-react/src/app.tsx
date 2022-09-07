@@ -1,9 +1,7 @@
 import React,{useEffect} from 'react';
-import logo from './logo.svg';
-import {BrowserRouter, Route, Routes, NavLink} from 'react-router-dom';
+import {BrowserRouter, NavLink} from 'react-router-dom';
 import './App.css';
 import action from './action';
-import Home from './pages/Home';
 
 function App() {
   useEffect(() => {
@@ -14,14 +12,11 @@ function App() {
 
   return (
     <BrowserRouter>
-        <h2>main-react</h2>
-        <div>
+        <div className='nav-box'>
           <NavLink to="/app-react">react 子项目</NavLink>
+          <NavLink to="/app-vue">vue 子项目</NavLink>
         </div>
-      <Routes>
-        <Route path='/app-react' element={<Home/>}/>
-      </Routes>
-      <div id="container"></div>
+        <div id="container"></div>
     </BrowserRouter>
   );
 }

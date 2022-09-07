@@ -6,6 +6,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 function render(props:any) {
+  console.log('props------react',props);
+  
   const { container,routerBase } = props;
   const RootDom= container ? container.querySelector('#root') : document.querySelector('#root');
   const root = ReactDOM.createRoot(RootDom);
