@@ -8,18 +8,20 @@ import Home from './pages/Home';
 function App() {
   useEffect(() => {
     action.onGlobalStateChange((state) => {//监听公共状态的变化
-      console.log('当前state的值是----', state);
+      console.log('当前state的值是----++', state);
     }, true);
   },[])
-  
+
   return (
     <BrowserRouter>
+        <h2>main-react</h2>
         <div>
-          <NavLink to="/micro-react"/>
+          <NavLink to="/app-react">react 子项目</NavLink>
         </div>
       <Routes>
-        <Route path='/micro-react' element={<Home/>}/>
+        <Route path='/app-react' element={<Home/>}/>
       </Routes>
+      <div id="container"></div>
     </BrowserRouter>
   );
 }
